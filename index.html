@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<!-- deploy-ts: 2026-05-28 00:37:11 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -393,18 +394,14 @@
 // ===== ⚠️ 由 deploy.py 自动生成，请勿手动修改 =====
 
 // 每日营养目标（按用户情况修改）
-const DAILY_TARGET = { cal: 1300, protein: 100, carbs: 120, fat: 35 };
+const DAILY_TARGET = { cal: 1600, protein: 100, carbs: 180, fat: 50 };
 function f(n) { return Number(n).toFixed(1); }
 
 // ===== 饮食记录 =====
 // 格式：{ date: "YYYY-MM-DD", meal: "餐次", items: "食物描述", photo: "图片路径或空", cal: 热量, protein: 蛋白质, carbs: 碳水, fat: 脂肪, fiber: 纤维 }
 const MEALS = [
-  { date: "2026-05-26", meal: "早餐", items: "植物蛋白粉、烤红薯、火龙果、纽崔莱补剂组合（蛋白粉+维C饮+倍力健+B族+姜黄维C）", photo: "", cal: 199, protein: 19.5, carbs: 28.0, fat: 1.0, fiber: 2.5 },
-  { date: "2026-05-26", meal: "午餐", items: "海带、排骨(带骨)、杂粮馒头", photo: "", cal: 373, protein: 21.5, carbs: 35.0, fat: 13.2, fiber: 2.5 },
-  { date: "2026-05-26", meal: "晚餐", items: "白萝卜、排骨、杂粮馒头、苹果、倍力健、金骨丹、钙镁片", photo: "", cal: 487, protein: 21.5, carbs: 58.0, fat: 13.4, fiber: 6.8 },
-  { date: "2026-05-27", meal: "早餐", items: "纽崔莱植物蛋白粉、香蕉、苹果、倍力健", photo: "", cal: 254, protein: 25.3, carbs: 37.0, fat: 1.9, fiber: 4.0 },
-  { date: "2026-05-27", meal: "午餐", items: "杂粮米饭、牛肉、鸡蛋、芹菜、苦瓜、豆芽、烹饪油", photo: "", cal: 562, protein: 44.1, carbs: 44.0, fat: 23.5, fiber: 7.5 },
-  { date: "2026-05-27", meal: "晚餐", items: "芥蓝/菜心、牛肉片、杂粮米饭、烹饪用油、倍力健+金骨丹+钙镁片", photo: "", cal: 342, protein: 17.0, carbs: 42.5, fat: 11.3, fiber: 7.5 },
+  // 在这里添加饮食记录，例如：
+  // { date: "2026-01-01", meal: "早餐", items: "全麦面包2片+鸡蛋1个", photo: "", cal: 350, protein: 20, carbs: 40, fat: 10, fiber: 3 },
 ];
 
 
@@ -412,10 +409,11 @@ const MEALS = [
 // 格式：{ date: "YYYY-MM-DD", weight: 体重数字或null, exercise: "运动", note: "备注", body: { bf: 体脂率, muscle: 肌肉量, visceral: 内脏脂肪, bmi: BMI } }
 // body 可为 null（无体成分数据时）
 const DATA = [
-  { date: "2026-05-26", weight: 63.8, exercise: "", note: "（建档日，家用体重秤空腹数据）", body: null },
+  // 在这里添加体重记录，例如：
+  // { date: "2026-01-01", weight: 80.0, exercise: "", note: "起始", body: null },
 ];
 
-const GOAL = 57.0; // 用户目标体重（修改此值）
+const GOAL = 75.0; // 用户目标体重（修改此值）
 const GOAL_DATE = '目标日期（可修改）';
 // ===== 以下为渲染逻辑 =====
 // ===== 以下为渲染逻辑 =====
