@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<!-- deploy-ts: 2026-05-28 11:14:51 -->
+<!-- deploy-ts: 2026-05-28 19:02:55 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -400,13 +400,13 @@ function f(n) { return Number(n).toFixed(1); }
 // ===== 饮食记录 =====
 // 格式：{ date: "YYYY-MM-DD", meal: "餐次", items: "食物描述", photo: "图片路径或空", cal: 热量, protein: 蛋白质, carbs: 碳水, fat: 脂肪, fiber: 纤维 }
 const MEALS = [
-  { date: "2026-05-26", meal: "早餐", items: "植物蛋白粉、烤红薯、火龙果、纽崔莱补剂组合（蛋白粉+维C饮+倍力健+B族+姜黄维C）", photo: "", cal: 199, protein: 19.5, carbs: 28.0, fat: 1.0, fiber: 2.5 },
-  { date: "2026-05-26", meal: "午餐", items: "海带、排骨(带骨)、杂粮馒头", photo: "", cal: 373, protein: 21.5, carbs: 35.0, fat: 13.2, fiber: 2.5 },
-  { date: "2026-05-26", meal: "晚餐", items: "白萝卜、排骨、杂粮馒头、苹果、倍力健、金骨丹、钙镁片", photo: "", cal: 487, protein: 21.5, carbs: 58.0, fat: 13.4, fiber: 6.8 },
-  { date: "2026-05-27", meal: "早餐", items: "纽崔莱植物蛋白粉、香蕉、苹果、倍力健", photo: "", cal: 254, protein: 25.3, carbs: 37.0, fat: 1.9, fiber: 4.0 },
-  { date: "2026-05-27", meal: "午餐", items: "杂粮米饭、牛肉、鸡蛋、芹菜、苦瓜、豆芽、烹饪油", photo: "", cal: 562, protein: 44.1, carbs: 44.0, fat: 23.5, fiber: 7.5 },
-  { date: "2026-05-27", meal: "晚餐", items: "芥蓝/菜心、牛肉片、杂粮米饭、烹饪用油、倍力健+金骨丹+钙镁片", photo: "", cal: 342, protein: 17.0, carbs: 42.5, fat: 11.3, fiber: 7.5 },
-  { date: "2026-05-28", meal: "早餐", items: "植物蛋白粉 2勺(20g)、牛奶 100ml、苹果 150g、倍力健 1对、胶原蛋白肽 1条(5g)、基源欣活 1条", photo: "", cal: 225, protein: 22.0, carbs: 26.8, fat: 4.4, fiber: 2.5 },
+  { date: "2026-05-26", meal: "早餐", items: "植物蛋白粉 2勺(20g), 烤红薯 80g, 火龙果 50g, 纽崔莱补剂组合（蛋白粉+维C饮+倍力健+B族+姜黄维C）", cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 },
+  { date: "2026-05-26", meal: "午餐", items: "海带 150g, 排骨(带骨) 200g, 杂粮馒头 70g", cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 },
+  { date: "2026-05-26", meal: "晚餐", items: "白萝卜 300g, 排骨 200g, 杂粮馒头 60g, 苹果 140g, 倍力健 1对…", cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 },
+  { date: "2026-05-27", meal: "早餐", items: "纽崔莱植物蛋白粉 2勺(30g), 香蕉 80g, 苹果 120g, 倍力健 1对", cal: 254.0, protein: 25.3, carbs: 37.0, fat: 1.9, fiber: 4.0 },
+  { date: "2026-05-27", meal: "午餐", items: "杂粮米饭 100g, 牛肉 120g, 鸡蛋 100g（约2个）, 芹菜 80g, 苦瓜 50g…", cal: 562.0, protein: 44.1, carbs: 44.0, fat: 23.5, fiber: 7.5 },
+  { date: "2026-05-27", meal: "晚餐", items: "芥蓝/菜心 250g, 牛肉片 40g, 杂粮米饭 130g, 烹饪用油 8g, 倍力健+金骨丹+钙镁片", cal: 342.0, protein: 17.0, carbs: 42.5, fat: 11.3, fiber: 7.5 },
+  { date: "2026-05-28", meal: "早餐", items: ":---, 植物蛋白粉 2勺(20g), 牛奶 100ml, 苹果 150g, 倍力健 1对…", cal: 225.0, protein: 22.0, carbs: 26.8, fat: 4.4, fiber: 2.5 },
 ];
 
 
@@ -414,11 +414,11 @@ const MEALS = [
 // 格式：{ date: "YYYY-MM-DD", weight: 体重数字或null, exercise: "运动", note: "备注", body: { bf: 体脂率, muscle: 肌肉量, visceral: 内脏脂肪, bmi: BMI } }
 // body 可为 null（无体成分数据时）
 const DATA = [
-  { date: "2026-05-26", weight: 63.8, exercise: "", note: "（建档日，家用体重秤空腹数据）", body: null },
-  { date: "2026-05-27", weight: 63.7, exercise: "", note: "", body: null },
+  { date: "2026-05-26", weight: 63.8, exercise: "", note: "家用体重秤空腹数据", body: null },
+  { date: "2026-05-27", weight: 63.7, exercise: "", note: "比昨天63.8kg ⬇ 0.1kg", body: null },
 ];
 
-const GOAL = 57.0; // 用户目标体重（修改此值）
+const GOAL = 75.0; // 用户目标体重（修改此值）
 const GOAL_DATE = '目标日期（可修改）';
 // ===== 以下为渲染逻辑 =====
 // ===== 以下为渲染逻辑 =====
